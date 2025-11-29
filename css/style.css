@@ -67,3 +67,55 @@ body {
     margin-bottom: var(--spacing-lg);
     letter-spacing: -0.5px;
 }
+
+/* ================================
+    Search Form
+   ================================ */
+
+.search-form {
+    max-width: 555px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    background: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 18px 24px;
+    font-size: 18px;
+    font-family: var(--font-family);
+    outline: none;
+    color: var(--very-dark-gray);
+}
+
+.search-input::placeholder {
+    color: var(--dark-gray);
+}
+
+.search-input:focus {
+    outline: 2px solid hsl(245, 33%, 45%);
+    outline-offset: -2px;
+}
+
+.search-button {
+    background: var(--very-dark-gray);
+    border: none;
+    padding: 18px 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background: hsl(0, 0%, 30%);
+}
+
+.search-button:active {
+    background: hsl(0, 0%, 10%);
+}
