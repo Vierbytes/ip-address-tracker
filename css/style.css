@@ -7,3 +7,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    /* Colors */
+    --very-dark-gray: hsl(0, 0%, 17%);  /* Using CSS variables or Customs CSS properties in combination with the root selector to make the defined variables available globally. */
+    --dark-gray: hsl(0, 0%, 59%);       /* Resources: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties */
+    --white: hsl(0, 0%, 100%);          /* Resources: https://medium.com/@kaklotarrahul79/what-no-one-told-you-about-css-variables-6e1a315c2b74 */
+
+    /* Font */
+    --font-family: 'Rubik', sans-serif;
+    --font-size-body: 18px;
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;  /* This follows the 8-Point grid system that scales spacing in multiples of 8. */
+    --spacing-md: 24px;  /* Resources: https://m2.material.io/design/layout/responsive-layout-grid.html#columns-gutters-and-margins */
+    --spacing-lg: 32px;  /* Resources: https://www.youtube.com/watch?v=ak_zNvESZL8 */
+    --spacing-xl: 48px;  /* Resources: https://www.youtube.com/watch?v=hxR2Aqy7ZZc&t=175s */
+
+    /* Border Radius */
+    --radius-sm: 12px;
+    --radius-md: 15px;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    color: var(--very-dark-gray);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
