@@ -119,3 +119,55 @@ body {
 .search-button:active {
     background: hsl(0, 0%, 10%);
 }
+
+/* ================================
+    Info Panel
+   ================================ */
+
+.info-container {
+    position: relative;
+    margin: -80px auto 0;
+    max-width: 1110px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.1);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* auto-fit will create as many columns as will fit in the container and minmax makes each at least 200px but can grow to fill space equally. */
+    gap: var(--spacing-lg);
+}
+
+.info-item {
+    position: relative;
+    text-align: left;
+}
+
+.info-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: calc(var(--spacing-lg) / -2);    /* Creates pipes as dividers between items except the last one and centers the pipes in gap using negative positioning. */
+    top: 10%;                               /* This approach > borders because borders are attached to the element making it hard to position in the middle gap. */
+    height: 80%;
+    width: 1px;
+    background: hsl(0, 0%, 15%);
+}
+
+.info-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.info-value {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--very-dark-gray);
+    word-break: break-word;
+    line-height: 1.3;
+}
