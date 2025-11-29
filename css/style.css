@@ -38,3 +38,32 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
+/* ================================
+    Header Section
+   ================================ */
+
+.header {
+    background: linear-gradient(135deg, hsl(245,33%, 25%) 0%, hsl(245, 22%, 37%) 100%);
+    background-image: url('../images/pattern-bg-desktop.png');
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.title {
+    font-size: clamp(24px, 5vw, 32px);  /* The clamp() function creates responsive font sizes that scale and stay within boundaries w/o having to use media queries for every breakpoint. */
+    color: var(--white);                /* Resources: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/clamp */
+    font-weight: 500;                   /* Resources: https://www.youtube.com/watch?v=erqRw3E-vn4&t=225s */
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.5px;
+}
