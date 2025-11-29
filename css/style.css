@@ -171,3 +171,14 @@ body {
     word-break: break-word;
     line-height: 1.3;
 }
+
+/* ================================
+    Map Container
+   ================================ */
+
+.map-container {
+    height: calc(100vh -280px);
+    min-height: 500px;
+    width: 100%;
+    position: relative;
+}
