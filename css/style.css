@@ -182,3 +182,34 @@ body {
     width: 100%;
     position: relative;
 }
+
+/* ================================
+    Loading Spinner
+   ================================ */
+
+.loading-spinner {
+    display: none;                      /* Hidden by default */
+    position: fixed;                    /* Stays in place even when scrolling */
+    top: 50%;                           /* vertically centered */
+    left: 50%;                          /* centered horizontally */
+    transform: translate(-50%, -50%);   /* actually centers the spinner */
+}
+
+.loading-spinner.active {
+    display: block;     /* Shows when 'active' class is added */
+}
+
+.spinner {
+    border: 4px solid hsla(0, 0%, 0%, 0.1);    /* light gray circle */
+    border-left-color: var(--very-dark-gray);   /* dark left side of gray circle */
+    border-radius: 50%;                        /* makes a circle */
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;     /* Rotates forever*/
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);      /* Rotates full circle */
+    }
+}
