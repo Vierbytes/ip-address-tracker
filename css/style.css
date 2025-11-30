@@ -28,6 +28,11 @@
     /* Border Radius */
     --radius-sm: 12px;
     --radius-md: 15px;
+
+    /* Z-index */
+    --z-header: 10;
+    --z-info: 100;
+    --z-loading: 1000;
 }
 
 body {
@@ -53,6 +58,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: var(--z-header);
 }
 
 .header-content {
@@ -126,12 +132,13 @@ body {
 
 .info-container {
     position: relative;
-    margin: -80px auto 0;
+    margin: -80px auto;
     max-width: 1110px;
     background: var(--white);
     border-radius: var(--radius-md);
     padding: var(--spacing-lg);
     box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.1);
+    z-index: var(--z-info);
 }
 
 .info-grid {
@@ -179,8 +186,19 @@ body {
 .map-container {
     height: calc(100vh -280px);
     min-height: 500px;
+    height: 100vh;
     width: 100%;
     position: relative;
+    z-index: 1;
+}
+
+.leaflet-pane {
+    z-index: 50!important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+    z-index: 50!important;
 }
 
 /* ================================
@@ -193,6 +211,7 @@ body {
     top: 50%;                           /* vertically centered */
     left: 50%;                          /* centered horizontally */
     transform: translate(-50%, -50%);   /* actually centers the spinner */
+    z-index: var(--z-loading);
 }
 
 .loading-spinner.active {
