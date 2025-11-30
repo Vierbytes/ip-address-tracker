@@ -13,6 +13,16 @@ const locationEl = document.getElementById('location')
 const timezoneEl = document.getElementById('timezone')
 const ispEl = document.getElementById('isp')
 
+// Calls when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    initializeMap()
+    getIPData()
+    searchForm.addEventListener('submit', handleSearch)
+    // updateMap(51.5074, -0.1278)   // London
+
+})
+
+
 // ===================================
 // Map Functions
 // ===================================
@@ -38,8 +48,6 @@ function initializeMap() {
         console.error('Error initializing map: ', error)
     }
 }
-
-
 
 function updateMap(lat, lng) {
     if (!map) {
@@ -73,19 +81,75 @@ function updateMap(lat, lng) {
         console.log(`Map updated to: ${lat}, ${lng}`)
     } catch (error) {
         console.error('Error updating map: ', error)
-        showError('Failed to update map location')
+    }
+}
+
+// ===================================
+// API Functions
+// ===================================
+
+//  Fetch IP geolocation data
+async function getIPData(query = '') {
+    showLoading(true)
+
+    try {
+        // Build API URL
+        let url = `${CONFIG.IPIFY_BASE_URL}?apiKey=${CONFIG.IPIFY_API_KEY}`
+
+        if (query) {
+            // Check if query is domain or IP
+            url += `&${isValidIP(query) ? 'ipAddress' : 'domain'}=${encodeURIComponent(query)}`
+        }
+
+        console.log('Fetching IP data...')
+
+        // Fetch data from API
+        const response = await fetch(url)
+
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status} ${response.statusText}`)
+        }
+
+        const data = await response.json()
+        console.log('IP data received:', data)
+
+
+        // Update map
+        if (data.location && data.location.lat && data.location.lng) {
+            updateMap(data.location.lat, data.location.lng)
+        }
+
+    } catch (error) {
+        console.error('Error fetching IP data:', error)
+    } finally {
+        showLoading(false)
     }
 }
 
 
-initializeMap()
-updateMap(33.7501, -84.3885)  // Atlanta
-// updateMap(35.6762, 139.6503)  // Tokyo
-// updateMap(51.5074, -0.1278)   // London
+// ===================================
+// Validation Functions
+// ===================================
 
-// Calls when the page loads
-// document.addEventListener('DOMContentLoaded', () => {
-//     initializeMap()
-//     updateMap(51.5074, -0.1278)   // London
+/**
+ * Check if string is a valid IP address
+ * @param {string} str - String to validate
+ * @returns {boolean}
+ */
+function isValidIP(str) {
+    // IPv4 regex pattern
+    const ipv4Pattern = /^(\d{1,3}\.){3}\d{1,3}$/
 
-// })
+    if (!ipv4Pattern.test(str)) {
+        return false
+    }
+
+    // Check each octet is 0-255
+    const octets = str.split('.')
+    return octets.every(octet => {
+        const num = parseInt(octet, 10)
+        return num >= 0 && num <= 255
+    })
+}
+
+
