@@ -6,6 +6,8 @@ let marker
 const searchForm = document.getElementById('searchForm')
 const searchInput = document.getElementById('searchInput')
 const loadingSpinner = document.getElementById('loadingSpinner')
+const errorMessage = document.getElementById('errorMessage')
+const errorText = document.getElementById('errorText')
 
 // Info display elements
 const ipAddressEl = document.getElementById('ipAddress')
@@ -46,6 +48,7 @@ function initializeMap() {
         console.log('Map initialized successfully')
     } catch (error) {
         console.error('Error initializing map: ', error)
+        showError('Failed to initialize map')
     }
 }
 
@@ -81,6 +84,7 @@ function updateMap(lat, lng) {
         console.log(`Map updated to: ${lat}, ${lng}`)
     } catch (error) {
         console.error('Error updating map: ', error)
+        showError('Failed to update map location')
     }
 }
 
@@ -121,6 +125,7 @@ async function getIPData(query = '') {
 
     } catch (error) {
         console.error('Error fetching IP data:', error)
+        showError(errorMsg)
     } finally {
         showLoading(false)
     }
@@ -230,4 +235,28 @@ function showLoading(show) {
     } else {
         loadingSpinner.classList.remove('active')
     }
+}
+
+/**
+ * Show error message
+ * @param {string} message - Error message to display
+ */
+function showError(message) {
+    errorText.textContent = message
+    errorMessage.classList.add('active')
+
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        hideError()
+    }, 5000)
+}
+
+// Hide error message
+function hideError() {
+    errorMessage.classList.remove('active')
+}
+
+// Close error message called from HTML
+function closeError() {
+    hideError()
 }
