@@ -126,6 +126,40 @@ async function getIPData(query = '') {
     }
 }
 
+/**
+ * Update UI elements with IP data
+ * @param {object} data - IP geolocation data from API
+ */
+function updateUI(data) {
+    try {
+        // Update IP Address
+        ipAddressEl.textContent = data.ip || '—'
+
+        // Update Location (City, Region PostalCode)
+        if (data.location) {
+            const { city, region, postalCode } = data.location
+            const locationParts = [city, region, postalCode].filter(Boolean)
+            locationEl.textContent = locationParts.join(', ') || '—'
+
+            // Update Timezone
+            timezoneEl.textContent = data.location.timezone
+                ? `UTC ${data.location.timezone}`
+                : '—'
+        } else {
+            locationEl.textContent = '—'
+            timezoneEl.textContent = '—'
+        }
+
+        // Update ISP
+        ispEl.textContent = data.isp || '—'
+
+    } catch (error) {
+        console.error('Error updating UI:', error)
+        showError('Failed to display IP information')
+    }
+}
+
+
 
 // ===================================
 // Validation Functions
@@ -153,3 +187,47 @@ function isValidIP(str) {
 }
 
 
+// ===================================
+// Form Handlers
+// ===================================
+
+/**
+ * Handle search form submission
+ * @param {Event} e - Form submit event
+ */
+function handleSearch(e) {
+    e.preventDefault()
+
+    const query = searchInput.value.trim()
+
+    if (!query) {
+        showError('Please enter an IP address or domain')
+        return
+    }
+
+    // Validate input
+    if (!isValidIP(query) && !isValidDomain(query)) {
+        showError('Please enter a valid IP address or domain')
+        return
+    }
+
+    // Fetch data for the query
+    getIPData(query)
+}
+
+
+// ===================================
+// UI Helper Functions
+// ===================================
+
+/**
+ * Show/hide loading spinner
+ * @param {boolean} show - Whether to show spinner
+ */
+function showLoading(show) {
+    if (show) {
+        loadingSpinner.classList.add('active')
+    } else {
+        loadingSpinner.classList.remove('active')
+    }
+}
