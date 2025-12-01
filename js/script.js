@@ -116,7 +116,7 @@ async function getIPData(query = '') {
 
         const data = await response.json()
         console.log('IP data received:', data)
-
+        updateUI(data)
 
         // Update map
         if (data.location && data.location.lat && data.location.lng) {
@@ -191,6 +191,17 @@ function isValidIP(str) {
     })
 }
 
+
+/**
+ * Check if string is a valid domain
+ * @param {string} str - String to validate
+ * @returns {boolean}
+ */
+function isValidDomain(str) {
+    // Basic domain regex pattern
+    const domainPattern = /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]?(\.[a-zA-Z]{2,})+$/;
+    return domainPattern.test(str);
+}
 
 // ===================================
 // Form Handlers

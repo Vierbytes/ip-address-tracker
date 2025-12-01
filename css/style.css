@@ -10,9 +10,12 @@
 
 :root {
     /* Colors */
-    --very-dark-gray: hsl(0, 0%, 17%);  /* Using CSS variables or Customs CSS properties in combination with the root selector to make the defined variables available globally. */
-    --dark-gray: hsl(0, 0%, 59%);       /* Resources: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties */
-    --white: hsl(0, 0%, 100%);          /* Resources: https://medium.com/@kaklotarrahul79/what-no-one-told-you-about-css-variables-6e1a315c2b74 */
+    --very-dark-gray: hsl(0, 0%, 17%);
+    /* Using CSS variables or Customs CSS properties in combination with the root selector to make the defined variables available globally. */
+    --dark-gray: hsl(0, 0%, 59%);
+    /* Resources: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties */
+    --white: hsl(0, 0%, 100%);
+    /* Resources: https://medium.com/@kaklotarrahul79/what-no-one-told-you-about-css-variables-6e1a315c2b74 */
 
     /* Font */
     --font-family: 'Rubik', sans-serif;
@@ -20,10 +23,14 @@
 
     /* Spacing */
     --spacing-xs: 8px;
-    --spacing-sm: 16px;  /* This follows the 8-Point grid system that scales spacing in multiples of 8. */
-    --spacing-md: 24px;  /* Resources: https://m2.material.io/design/layout/responsive-layout-grid.html#columns-gutters-and-margins */
-    --spacing-lg: 32px;  /* Resources: https://www.youtube.com/watch?v=ak_zNvESZL8 */
-    --spacing-xl: 48px;  /* Resources: https://www.youtube.com/watch?v=hxR2Aqy7ZZc&t=175s */
+    --spacing-sm: 16px;
+    /* This follows the 8-Point grid system that scales spacing in multiples of 8. */
+    --spacing-md: 24px;
+    /* Resources: https://m2.material.io/design/layout/responsive-layout-grid.html#columns-gutters-and-margins */
+    --spacing-lg: 32px;
+    /* Resources: https://www.youtube.com/watch?v=ak_zNvESZL8 */
+    --spacing-xl: 48px;
+    /* Resources: https://www.youtube.com/watch?v=hxR2Aqy7ZZc&t=175s */
 
     /* Border Radius */
     --radius-sm: 12px;
@@ -49,7 +56,7 @@ body {
    ================================ */
 
 .header {
-    background: linear-gradient(135deg, hsl(245,33%, 25%) 0%, hsl(245, 22%, 37%) 100%);
+    background: linear-gradient(135deg, hsl(245, 33%, 25%) 0%, hsl(245, 22%, 37%) 100%);
     background-image: url('../images/pattern-bg-desktop.png');
     padding: var(--spacing-lg) var(--spacing-md);
     text-align: center;
@@ -67,9 +74,12 @@ body {
 }
 
 .title {
-    font-size: clamp(24px, 5vw, 32px);  /* The clamp() function creates responsive font sizes that scale and stay within boundaries w/o having to use media queries for every breakpoint. */
-    color: var(--white);                /* Resources: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/clamp */
-    font-weight: 500;                   /* Resources: https://www.youtube.com/watch?v=erqRw3E-vn4&t=225s */
+    font-size: clamp(24px, 5vw, 32px);
+    /* The clamp() function creates responsive font sizes that scale and stay within boundaries w/o having to use media queries for every breakpoint. */
+    color: var(--white);
+    /* Resources: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/clamp */
+    font-weight: 500;
+    /* Resources: https://www.youtube.com/watch?v=erqRw3E-vn4&t=225s */
     margin-bottom: var(--spacing-lg);
     letter-spacing: -0.5px;
 }
@@ -96,6 +106,7 @@ body {
     font-family: var(--font-family);
     outline: none;
     color: var(--very-dark-gray);
+
 }
 
 .search-input::placeholder {
@@ -143,7 +154,8 @@ body {
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* auto-fit will create as many columns as will fit in the container and minmax makes each at least 200px but can grow to fill space equally. */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* auto-fit will create as many columns as will fit in the container and minmax makes each at least 200px but can grow to fill space equally. */
     gap: var(--spacing-lg);
 }
 
@@ -155,8 +167,10 @@ body {
 .info-item:not(:last-child)::after {
     content: '';
     position: absolute;
-    right: calc(var(--spacing-lg) / -2);    /* Creates pipes as dividers between items except the last one and centers the pipes in gap using negative positioning. */
-    top: 10%;                               /* This approach > borders because borders are attached to the element making it hard to position in the middle gap. */
+    right: calc(var(--spacing-lg) / -2);
+    /* Creates pipes as dividers between items except the last one and centers the pipes in gap using negative positioning. */
+    top: 10%;
+    /* This approach > borders because borders are attached to the element making it hard to position in the middle gap. */
     height: 80%;
     width: 1px;
     background: hsl(0, 0%, 15%);
@@ -193,12 +207,12 @@ body {
 }
 
 .leaflet-pane {
-    z-index: 50!important;
+    z-index: 50 !important;
 }
 
 .leaflet-top,
 .leaflet-bottom {
-    z-index: 50!important;
+    z-index: 50 !important;
 }
 
 /* ================================
@@ -206,29 +220,208 @@ body {
    ================================ */
 
 .loading-spinner {
-    display: none;                      /* Hidden by default */
-    position: fixed;                    /* Stays in place even when scrolling */
-    top: 50%;                           /* vertically centered */
-    left: 50%;                          /* centered horizontally */
-    transform: translate(-50%, -50%);   /* actually centers the spinner */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stays in place even when scrolling */
+    top: 50%;
+    /* vertically centered */
+    left: 50%;
+    /* centered horizontally */
+    transform: translate(-50%, -50%);
+    /* actually centers the spinner */
     z-index: var(--z-loading);
 }
 
 .loading-spinner.active {
-    display: block;     /* Shows when 'active' class is added */
+    display: block;
+    /* Shows when 'active' class is added */
 }
 
 .spinner {
-    border: 4px solid hsla(0, 0%, 0%, 0.1);    /* light gray circle */
-    border-left-color: var(--very-dark-gray);   /* dark left side of gray circle */
-    border-radius: 50%;                        /* makes a circle */
+    border: 4px solid hsla(0, 0%, 0%, 0.1);
+    /* light gray circle */
+    border-left-color: var(--very-dark-gray);
+    /* dark left side of gray circle */
+    border-radius: 50%;
+    /* makes a circle */
     width: 50px;
     height: 50px;
-    animation: spin 1s linear infinite;     /* Rotates forever*/
+    animation: spin 1s linear infinite;
+    /* Rotates forever*/
 }
 
 @keyframes spin {
     to {
-        transform: rotate(360deg);      /* Rotates full circle */
+        transform: rotate(360deg);
+        /* Rotates full circle */
     }
+}
+
+
+/* ===================================
+    Error Message
+   =================================== */
+.error-message {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(0, 70%, 50%);
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    z-index: var(--z-error);
+    max-width: 500px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+}
+
+.error-message.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+}
+
+.error-close {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.error-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+}
+
+/* ===================================
+    Responsive Design - Mobile
+   =================================== */
+@media (max-width: 768px) {
+    .header {
+        min-height: 300px;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .search-form {
+        max-width: 100%;
+    }
+
+    .search-input {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+
+    .search-button {
+        padding: 16px 24px;
+    }
+
+    .info-container {
+        margin: -100px var(--spacing-sm) 0;
+        padding: var(--spacing-md);
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .info-item {
+        padding-bottom: var(--spacing-md);
+        border-bottom: 1px solid hsl(0, 0%, 90%);
+        text-align: center;
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    /* Remove vertical dividers on mobile */
+    .info-item:not(:last-child)::after {
+        display: none;
+    }
+
+    .info-value {
+        font-size: 20px;
+    }
+
+    .map-container {
+        height: calc(100vh - 300px);
+    }
+}
+
+/* ===================================
+    Responsive Design - Tablet
+   =================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-item:nth-child(2)::after,
+    .info-item:last-child::after {
+        display: none;
+    }
+}
+
+/* ===================================
+    Accessibility
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+.search-button:focus-visible,
+.error-close:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
