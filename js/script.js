@@ -95,6 +95,7 @@ function updateMap(lat, lng) {
 //  Fetch IP geolocation data
 async function getIPData(query = '') {
     showLoading(true)
+    hideError()
 
     try {
         // Build API URL
@@ -125,6 +126,18 @@ async function getIPData(query = '') {
 
     } catch (error) {
         console.error('Error fetching IP data:', error)
+
+        // Show user-friendly error message
+        let errorMsg = 'Failed to fetch IP data. '
+        if (error.message.includes('404')) {
+            errorMsg += 'IP address or domain not found.'
+        } else if (error.message.includes('403') || error.message.includes('401')) {
+            errorMsg += 'Invalid API key. Please check your configuration.'
+        } else if (error.message.includes('429')) {
+            errorMsg += 'Rate limit exceeded. Please try again later.'
+        } else {
+            errorMsg += 'Please check your connection and try again.'
+        }
         showError(errorMsg)
     } finally {
         showLoading(false)
@@ -163,8 +176,6 @@ function updateUI(data) {
         showError('Failed to display IP information')
     }
 }
-
-
 
 // ===================================
 // Validation Functions
