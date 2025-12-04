@@ -40,6 +40,7 @@
     --z-header: 10;
     --z-info: 100;
     --z-loading: 1000;
+    --z-error: 2000;
 }
 
 body {
@@ -268,7 +269,7 @@ body {
 /* ===================================
     Error Message
    =================================== */
-.error-message {
+/* .error-message {
     display: none;
     position: fixed;
     top: 100px;
@@ -310,7 +311,7 @@ body {
 }
 
 .error-close:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: hsla(0, 0%, 100%, 0.2);
 }
 
 @keyframes slideDown {
@@ -323,7 +324,7 @@ body {
         transform: translateX(-50%);
         opacity: 1;
     }
-}
+} */
 
 /* ===================================
     Responsive Design - Mobile
