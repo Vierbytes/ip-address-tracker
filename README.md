@@ -1,12 +1,12 @@
 # <a name="project"></a>IP Address Tracker
 
 Frontend Mentor Challenge - Track IP addresses and display location on interactive map
-
+![images](https://github.com/Vierbytes/ip-address-tracker/blob/main/images/ip-pin.png)
 
 
 ## <a name="toc"></a>Table of Contents
 
-- [IP Address Tracker](#ip-address-tracker)
+  - [IP Address Tracker](#ip-address-tracker)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Technologies Used](#technologies-used)
@@ -30,8 +30,10 @@ Frontend Mentor Challenge - Track IP addresses and display location on interacti
 * https://trello.com/b/ZaDQKP0I/project-1-ip-address-tracker
 
 ## <a name="deployment"></a>Deployed Link
-* You can view the repository:
+* Netlify Deployed Site:
 [Netlify](https://ip-pin.netlify.app/)
+
+* You can view the repository:
 [Github.com](https://github.com/Vierbytes/ip-address-tracker)
 
 ## Wireframe
