@@ -2,6 +2,8 @@
 
 Frontend Mentor Challenge - Track IP addresses and display location on interactive map
 
+
+
 ## <a name="toc"></a>Table of Contents
 
 - [IP Address Tracker](#ip-address-tracker)
@@ -29,7 +31,8 @@ Frontend Mentor Challenge - Track IP addresses and display location on interacti
 
 ## <a name="deployment"></a>Deployed Link
 * You can view the repository:
-[Github.com] (https://github.com/Vierbytes/ip-address-tracker)
+[Netlify](https://ip-pin.netlify.app/)
+[Github.com](https://github.com/Vierbytes/ip-address-tracker)
 
 ## Wireframe
 * https://www.figma.com/design/w3Gv9WYz5ItvfY1rJrMYzd/Project-1--IP-Address-Tracker?m=auto&t=DxdtzRbBKFIwI7u2-6
