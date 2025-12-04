@@ -98,17 +98,16 @@ async function getIPData(query = '') {
     hideError()
 
     try {
-        // Build API URL
-        let url = `${CONFIG.IPIFY_BASE_URL}?apiKey=${CONFIG.IPIFY_API_KEY}`
+        // Call our Netlify serverless function instead of the API directly
+        let url = '/.netlify/functions/get-ip-data'
 
         if (query) {
-            // Check if query is domain or IP
-            url += `&${isValidIP(query) ? 'ipAddress' : 'domain'}=${encodeURIComponent(query)}`
+            url += `?query=${encodeURIComponent(query)}`
         }
 
         console.log('Fetching IP data...')
 
-        // Fetch data from API
+        // Fetch data from our serverless function
         const response = await fetch(url)
 
         if (!response.ok) {
@@ -116,6 +115,12 @@ async function getIPData(query = '') {
         }
 
         const data = await response.json()
+
+        // Check if there's an error in the response
+        if (data.error) {
+            throw new Error(data.error)
+        }
+
         console.log('IP data received:', data)
         updateUI(data)
 
